@@ -9,7 +9,7 @@ from model import VAEModel
 def load_model():
     
     # Initialise model
-    model = VAEModel(z_dim=160, n_filter_base=64, seed=1, dtype='float64')
+    model = VAEModel(z_dim=256, n_filter_base=64, seed=1, dtype='float64')
     
     # Forward pass
     x = tf.random.normal((128,32,32,3))    
@@ -21,37 +21,31 @@ def load_model():
     return model
 
 # show = st.image(image, use_column_width=True)
-st.title("CVAE")
+st.title("Coupled Variational AutoEncoder demo")
 
 model = load_model()
 
-## Image upload
-st.sidebar.title("Upload Image")
-#Disabling warning
-st.set_option('deprecation.showfileUploaderEncoding', False)
-#Choose your own image
-uploaded_file = st.sidebar.file_uploader(" ",type=['png', 'jpg', 'jpeg'] )
+image = Image.open('demo_image.png')
+st.image(image, 'Demo Image', use_column_width=True)
+# We preprocess the image to fit in algorithm.
+# image = np.asarray(image)
+image_tensor = tf.expand_dims(tf.keras.preprocessing.image.img_to_array(image)[:, :, :3], axis=0)
 
-if uploaded_file is not None:
+gen_images = []
+num_images = 9
+dim = int(num_images ** 0.5)
+for i in range(1, 10):
+    recons_logits, z_sample, mean, logvar = model(image_tensor/255, input_type='cifar10')
+    if i == int(num_images/2) + 1: # middle images
+        gen_images.append(tf.math.sigmoid(model.decoder(mean)))
+    else:
+        gen_images.append(tf.math.sigmoid(recons_logits))
     
-    u_img = Image.open(uploaded_file)
-    st.image(u_img, 'Uploaded Image', use_column_width=True)
+fig, axs = plt.subplots(dim, dim)
 
+for i, (ax, im) in enumerate(zip(axs.reshape(-1), gen_images)):
+    ax.imshow(im[0].numpy())
+    ax.axis('off')
+    
+st.pyplot(fig)
 
-    image_tensor = tf.expand_dims(tf.keras.preprocessing.image.img_to_array(u_img)[:, :, :3], axis=0)
-    
-    gen_image = model(image_tensor/255, input_type='cifar10')
-    
-    st.image(tf.math.sigmoid(gen_image[0][0]).numpy(), 'Generated Image', use_column_width=True)
-
-## Demo file
-st.sidebar.title("Run demo")
-if st.sidebar.button('Go!'):
-    
-    image = Image.open('demo_image.png')
-    st.image(image, 'Demo Image', use_column_width=True)
-    # We preprocess the image to fit in algorithm.
-    # image = np.asarray(image)
-    image_tensor = tf.expand_dims(tf.keras.preprocessing.image.img_to_array(image)[:, :, :3], axis=0)
-    gen_image = model(image_tensor/255, input_type='cifar10')
-    st.image(tf.math.sigmoid(gen_image[0][0]).numpy(), 'Generated Image', use_column_width=True)
