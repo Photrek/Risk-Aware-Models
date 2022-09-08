@@ -76,3 +76,8 @@ for i, (ax, im) in enumerate(zip(axs.reshape(-1), gen_images)):
 
 st.subheader('Average reconstruction vs reconstructions')    
 st.pyplot(fig)
+
+# Survey form
+
+st.subheader('How can the CVAE help you?')
+st.write("Please fill out this [survey](https://docs.google.com/forms/d/e/1FAIpQLSdQQCxMYXbLWzM5zSmf3kBtkZE2fvZ-J-DwMC6cfcyhgyAFow/viewform?usp=sf_link)")
