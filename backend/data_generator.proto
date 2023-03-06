@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package data_generator;
+
+service ServiceDefinition {
+    rpc GenerateImage(Class) returns (StringResponse) {}
+    rpc DownloadFile(MetaData) returns (stream FileResponse) {}
+}
+
+message Class {
+    string k = 1;
+}
+
+message StringResponse {
+    string s = 1;
+}
+
+message MetaData {
+    string filename = 1;
+    string extension = 2;
+}
+
+message FileResponse {
+    bytes chunk_data = 1;
+}
