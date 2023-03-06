@@ -19,22 +19,29 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='data_generator',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x14\x64\x61ta_generator.proto\x12\x0e\x64\x61ta_generator\"\x12\n\x05\x43lass\x12\t\n\x01k\x18\x01 \x01(\t\"\x1b\n\x0eStringResponse\x12\t\n\x01s\x18\x01 \x01(\t\"/\n\x08MetaData\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x11\n\textension\x18\x02 \x01(\t\"\"\n\x0c\x46ileResponse\x12\x12\n\nchunk_data\x18\x01 \x01(\x0c\x32\xa9\x01\n\x11ServiceDefinition\x12H\n\rGenerateImage\x12\x15.data_generator.Class\x1a\x1e.data_generator.StringResponse\"\x00\x12J\n\x0c\x44ownloadFile\x12\x18.data_generator.MetaData\x1a\x1c.data_generator.FileResponse\"\x00\x30\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x14\x64\x61ta_generator.proto\x12\x0e\x64\x61ta_generator\"\x1d\n\x05Input\x12\t\n\x01\x64\x18\x01 \x01(\t\x12\t\n\x01k\x18\x02 \x01(\t\"\x1b\n\x0eStringResponse\x12\t\n\x01s\x18\x01 \x01(\t2]\n\x11ServiceDefinition\x12H\n\rGenerateImage\x12\x15.data_generator.Input\x1a\x1e.data_generator.StringResponse\"\x00\x62\x06proto3')
 )
 
 
 
 
-_CLASS = _descriptor.Descriptor(
-  name='Class',
-  full_name='data_generator.Class',
+_INPUT = _descriptor.Descriptor(
+  name='Input',
+  full_name='data_generator.Input',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='k', full_name='data_generator.Class.k', index=0,
+      name='d', full_name='data_generator.Input.d', index=0,
       number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='k', full_name='data_generator.Input.k', index=1,
+      number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -52,7 +59,7 @@ _CLASS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=40,
-  serialized_end=58,
+  serialized_end=69,
 )
 
 
@@ -82,91 +89,20 @@ _STRINGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=60,
-  serialized_end=87,
+  serialized_start=71,
+  serialized_end=98,
 )
 
-
-_METADATA = _descriptor.Descriptor(
-  name='MetaData',
-  full_name='data_generator.MetaData',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='filename', full_name='data_generator.MetaData.filename', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='extension', full_name='data_generator.MetaData.extension', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=89,
-  serialized_end=136,
-)
-
-
-_FILERESPONSE = _descriptor.Descriptor(
-  name='FileResponse',
-  full_name='data_generator.FileResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='chunk_data', full_name='data_generator.FileResponse.chunk_data', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=138,
-  serialized_end=172,
-)
-
-DESCRIPTOR.message_types_by_name['Class'] = _CLASS
+DESCRIPTOR.message_types_by_name['Input'] = _INPUT
 DESCRIPTOR.message_types_by_name['StringResponse'] = _STRINGRESPONSE
-DESCRIPTOR.message_types_by_name['MetaData'] = _METADATA
-DESCRIPTOR.message_types_by_name['FileResponse'] = _FILERESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-Class = _reflection.GeneratedProtocolMessageType('Class', (_message.Message,), dict(
-  DESCRIPTOR = _CLASS,
+Input = _reflection.GeneratedProtocolMessageType('Input', (_message.Message,), dict(
+  DESCRIPTOR = _INPUT,
   __module__ = 'data_generator_pb2'
-  # @@protoc_insertion_point(class_scope:data_generator.Class)
+  # @@protoc_insertion_point(class_scope:data_generator.Input)
   ))
-_sym_db.RegisterMessage(Class)
+_sym_db.RegisterMessage(Input)
 
 StringResponse = _reflection.GeneratedProtocolMessageType('StringResponse', (_message.Message,), dict(
   DESCRIPTOR = _STRINGRESPONSE,
@@ -174,20 +110,6 @@ StringResponse = _reflection.GeneratedProtocolMessageType('StringResponse', (_me
   # @@protoc_insertion_point(class_scope:data_generator.StringResponse)
   ))
 _sym_db.RegisterMessage(StringResponse)
-
-MetaData = _reflection.GeneratedProtocolMessageType('MetaData', (_message.Message,), dict(
-  DESCRIPTOR = _METADATA,
-  __module__ = 'data_generator_pb2'
-  # @@protoc_insertion_point(class_scope:data_generator.MetaData)
-  ))
-_sym_db.RegisterMessage(MetaData)
-
-FileResponse = _reflection.GeneratedProtocolMessageType('FileResponse', (_message.Message,), dict(
-  DESCRIPTOR = _FILERESPONSE,
-  __module__ = 'data_generator_pb2'
-  # @@protoc_insertion_point(class_scope:data_generator.FileResponse)
-  ))
-_sym_db.RegisterMessage(FileResponse)
 
 
 
@@ -197,25 +119,16 @@ _SERVICEDEFINITION = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=175,
-  serialized_end=344,
+  serialized_start=100,
+  serialized_end=193,
   methods=[
   _descriptor.MethodDescriptor(
     name='GenerateImage',
     full_name='data_generator.ServiceDefinition.GenerateImage',
     index=0,
     containing_service=None,
-    input_type=_CLASS,
+    input_type=_INPUT,
     output_type=_STRINGRESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='DownloadFile',
-    full_name='data_generator.ServiceDefinition.DownloadFile',
-    index=1,
-    containing_service=None,
-    input_type=_METADATA,
-    output_type=_FILERESPONSE,
     serialized_options=None,
   ),
 ])

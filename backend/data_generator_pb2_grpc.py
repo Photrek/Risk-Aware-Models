@@ -16,13 +16,8 @@ class ServiceDefinitionStub(object):
     """
     self.GenerateImage = channel.unary_unary(
         '/data_generator.ServiceDefinition/GenerateImage',
-        request_serializer=data__generator__pb2.Class.SerializeToString,
+        request_serializer=data__generator__pb2.Input.SerializeToString,
         response_deserializer=data__generator__pb2.StringResponse.FromString,
-        )
-    self.DownloadFile = channel.unary_stream(
-        '/data_generator.ServiceDefinition/DownloadFile',
-        request_serializer=data__generator__pb2.MetaData.SerializeToString,
-        response_deserializer=data__generator__pb2.FileResponse.FromString,
         )
 
 
@@ -37,25 +32,13 @@ class ServiceDefinitionServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def DownloadFile(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
 
 def add_ServiceDefinitionServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'GenerateImage': grpc.unary_unary_rpc_method_handler(
           servicer.GenerateImage,
-          request_deserializer=data__generator__pb2.Class.FromString,
+          request_deserializer=data__generator__pb2.Input.FromString,
           response_serializer=data__generator__pb2.StringResponse.SerializeToString,
-      ),
-      'DownloadFile': grpc.unary_stream_rpc_method_handler(
-          servicer.DownloadFile,
-          request_deserializer=data__generator__pb2.MetaData.FromString,
-          response_serializer=data__generator__pb2.FileResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

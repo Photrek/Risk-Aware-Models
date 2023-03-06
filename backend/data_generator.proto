@@ -3,23 +3,16 @@ syntax = "proto3";
 package data_generator;
 
 service ServiceDefinition {
-    rpc GenerateImage(Class) returns (StringResponse) {}
-    rpc DownloadFile(MetaData) returns (stream FileResponse) {}
+    rpc GenerateImage(Input) returns (StringResponse) {}
 }
 
-message Class {
-    string k = 1;
+message Input {
+    // Type of data
+    string d = 1;
+    // Class
+    string k = 2;
 }
 
 message StringResponse {
     string s = 1;
-}
-
-message MetaData {
-    string filename = 1;
-    string extension = 2;
-}
-
-message FileResponse {
-    bytes chunk_data = 1;
 }
