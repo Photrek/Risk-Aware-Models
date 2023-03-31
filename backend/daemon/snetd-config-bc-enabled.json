@@ -1,0 +1,25 @@
+{
+  "daemon_end_point": "0.0.0.0:8088",
+  "ipfs_end_point": "http://ipfs.singularitynet.io:80",
+  "passthrough_enabled": true,
+  "passthrough_endpoint": "http://localhost:7003",
+  "organization_id": "Photrek",
+  "service_id": "risk-aware-assessment",
+  "payment_channel_cert_path": "/home/hxyue1/etcd/mike/certs/client.pem",
+  "payment_channel_ca_path": "/home/hxyue1/etcd/mike/certs/ca.pem",
+  "payment_channel_key_path": "/home/hxyue1/etcd/mike/certs/client-key.pem",
+  "ssl_cert": "/etc/letsencrypt/live/ai.photrek.io/fullchain.pem",
+  "ssl_key": "/etc/letsencrypt/live/ai.photrek.io/privkey.pem",
+  "blockchain_enabled": true,
+  "blockchain_network_selected": "main",
+  "ethereum_json_rpc_endpoint": "https://mainnet.infura.io/v3/e7732e1f679e461b9bb4da5653ac3fc2",
+  "log": {
+    "level": "debug",
+    "output": {
+      "type": "stdout"
+    }
+  },
+  "metering_enabled": true,
+  "metering_end_point": "https://marketplace-mt-v2.singularitynet.io",
+  "pvt_key_for_metering": "f744e901fb755f2d97e15cbf3f332f4da361d5b6e5de48bc9a6e8a026c4c9186"
+}
