@@ -15,8 +15,8 @@ import data_generator_pb2_grpc as pb2_grpc
 #sudo cp /home/hxyue1/{checkpoint,cp.ckpt.data-00000-of-00001,cp.ckpt.index} /home/blake_anderton/ram/checkpoints
 
 def run():
-    # with grpc.insecure_channel('34.136.24.206:7002') as channel:
-    with grpc.insecure_channel('localhost:7002') as channel:
+    with grpc.insecure_channel('34.136.24.206:7002') as channel:
+    # with grpc.insecure_channel('localhost:7002') as channel:
 
         # Taking input arguments
         dataset_type = sys.argv[1]
